@@ -23,5 +23,6 @@ router.get('/', (req, res) => {
 })
 
 router.use('/', require('./users'))
+router.use('/albums', require('./albums'))
 
 module.exports = router
