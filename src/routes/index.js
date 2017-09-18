@@ -12,6 +12,6 @@ const setLocals = (req, res, next) => {
 }
 
 router.use(setLocals)
-router.use('/', require('./noauth'))
+router.use('/', require('./unauthorized'))
 
 module.exports = router
