@@ -1,4 +1,6 @@
 const router = require('express').Router()
+const albumsDb = require('../db/albums.js')
+
 
 const setLocals = (req, res, next) => {
   let loggedIn = false
@@ -12,6 +14,14 @@ const setLocals = (req, res, next) => {
 }
 
 router.use(setLocals)
-router.use('/', require('./unauthorized'))
+
+router.get('/', (req, res) => {
+  albumsDb.getAll()
+    .then((albums) => {
+      res.render('index', {albums})
+    })
+})
+
+router.use('/', require('./users'))
 
 module.exports = router

@@ -1,0 +1,19 @@
+<%- include partials/header.ejs %>
+
+  <div class="column center">
+
+    <h2>Sign In</h2>
+
+    <form class="signup-signin" action="/signin" method="post">
+      <p>Username:</p>
+      <input class="form-input" type="text" name="username" required>
+      <p>Password:</p>
+      <input class="form-input" type="password" name="password" required>
+      <br/>
+      <br/>
+      <button type="submit">Sign In</button>
+    </form>
+
+  </div>
+
+<%- include partials/footer.ejs %>

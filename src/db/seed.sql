@@ -10,8 +10,8 @@ VALUES
 INSERT INTO
   users (username, email, password)
 VALUES
-  ('a', 'a@a.com', 'a'),
-  ('b', 'b@b.com', 'b')
+  ('a', 'a@a.com', '$2a$07$ilJ41JJ8NvgoEezvxw8To.P/BKQFmzidaHbP02AeKY.sSF1DcRyke'),
+  ('b', 'b@b.com', '$2a$07$DOk/zcWLYWcniNjfbKReve9DKqrZoX5XqsjlX3LthQEmysldp8hxq')
 ;
 
 INSERT INTO
