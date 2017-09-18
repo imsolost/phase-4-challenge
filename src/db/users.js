@@ -12,8 +12,8 @@ const create = (username, email, password) => {
     })
 }
 
-const getById = (id) => {
-  return db.one('SELECT * FROM users WHERE id = $1', [id])
+const getByUsername = (username) => {
+  return db.one('SELECT * FROM users WHERE username = $1', [username])
     .catch((error) => {
       console.log('\nError in getByUsername query\n')
       throw error
@@ -22,5 +22,5 @@ const getById = (id) => {
 
 module.exports = {
   create,
-  getById,
+  getByUsername,
 }

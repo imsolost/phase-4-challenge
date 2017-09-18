@@ -8,15 +8,15 @@ const getAll = () => {
     })
 }
 
-const getById = (id) => {
-  return db.one('SELECT * FROM albums WHERE id = $1', [id])
+const getByTitle = (title) => {
+  return db.one('SELECT * FROM albums WHERE title = $1', [title])
     .catch((error) => {
-      console.log('\nError in getByUsername query\n')
+      console.log('\nError in getByTitle query\n')
       throw error
     })
 }
 
 module.exports = {
   getAll,
-  getById,
+  getByTitle,
 }
