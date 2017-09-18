@@ -1,0 +1,13 @@
+<title>Vinyl: <%= user.username %></title>
+
+<%- include partials/header.ejs %>
+
+  <img class='profile-pic' src='<%= user.picture %>'/>
+
+  <div class='user-column'>
+    <h2><%= user.username %></h2>
+    <p>Email: <%= user.email %></p>
+    <p>Join Date: <%= moment(user.join_date).format('MMM-DD-YY') %></p>
+  </div>
+
+<%- include partials/footer.ejs %>
