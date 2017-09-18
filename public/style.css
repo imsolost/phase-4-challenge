@@ -1,0 +1,118 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, input {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+     color:#00A0C6;
+     text-decoration:none;
+     cursor:pointer;
+}
+
+button {
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: teal;
+  border: 5px outset teal;
+}
+
+.body-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row-space-around {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.row-space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+  background-color: teal;
+  border-bottom: 3px solid #222;
+  width: 100%;
+  padding: 0 1em 0 1em;
+  margin: 0;
+  justify-content: space-between;
+}
+
+.navbar-text {
+  color: #222;
+  margin: 0 3em 0 3em;
+}
+
+.vinyl {
+  font-size: 3em;
+}
+
+.form-input {
+  padding: .5em;
+  border-radius: 5px;
+  border: 3px inset teal;
+  width: 100%;
+}
+
+.profile-pic {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+  margin-top: 1.25em;
+  height: 175px;
+}
+
+.post-column {
+  width: 30%
+}
+
+.new-review-button {
+  border-radius: 5px;
+  background-color: lightgrey;
+  border: 3px outset lightgrey;
+}
+
+.trashcan:hover {
+  cursor:pointer;
+}
+
+.trashcan {
+  height: 2em;
+  margin: .65em 0 0 .2em;
+}
+
+.blue-box {
+  /*border: 1px solid blue;*/
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+}
+
+.red-box {
+  /*border: 1px solid red;*/
+  width: 92%
+}
+
+.album-list {
+  align-self: flex-start;
+}
