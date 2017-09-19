@@ -31,8 +31,24 @@ const getReviews = (title) => {
     })
 }
 
+const getRecentReviews = () => {
+  return db.query(`
+    SELECT reviews.id, content, review_date, title, artist, username
+    FROM reviews
+    LEFT OUTER JOIN albums ON albums.id = reviews.album_id
+    LEFT OUTER JOIN users ON users.id = reviews.user_id
+    ORDER BY id DESC
+    LIMIT 3`,
+    [])
+    .catch((error) => {
+      console.log('\nError in getReviews query\n')
+      throw error
+    })
+}
+
 module.exports = {
   getAll,
   getByTitle,
   getReviews,
+  getRecentReviews,
 }

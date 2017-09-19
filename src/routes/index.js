@@ -17,12 +17,27 @@ const setLocals = (req, res, next) => {
 
 router.use(setLocals)
 
-router.get('/', (req, res) => {
+const getAlbums = (req, res, next) => {
   albums.getAll()
     .then((albums) => {
-      res.render('index', {albums})
+      req.albums = albums
+      next()
     })
-})
+}
+
+const getReviews = (req, res, next) => {
+  albums.getRecentReviews()
+    .then((reviews) => {
+      req.reviews = reviews
+      next()
+    })
+}
+
+const renderIndex = (req, res) => {
+  res.render('index', {albums: req.albums, reviews: req.reviews, moment})
+}
+
+router.get('/', getAlbums, getReviews, renderIndex)
 
 router.route('/signup')
   .get((req, res) => res.render('signup'))

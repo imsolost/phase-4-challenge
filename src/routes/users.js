@@ -3,19 +3,6 @@ const users = require('../db/users.js')
 const moment = require('moment')
 const router = require('express').Router()
 
-// router.get('/:username', (req, res) => {
-//   const username = req.params.username
-//   users.getReviews(username)
-//     .then((reviews) => {
-//       req.reviews = reviews
-//     })
-//     .then(users.getByUsername(username)
-//         .then(user => {
-//           res.render('profile', {user, reviews: req.reviews, moment})
-//         }))
-//     .catch(error => res.status(500).render('error', {error}))
-// })
-
 router.get('/:username', (req, res) => {
   const username = req.params.username
   users.getReviews(username)
