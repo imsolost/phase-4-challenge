@@ -19,20 +19,7 @@ const remove = (id) => {
     })
 }
 
-const getById = (id) => {
-  return db.one(`
-    SELECT * FROM reviews
-    FULL OUTER JOIN users USING(user_id)
-    WHERE id = $1`,
-    [id])
-    .catch((error) => {
-      console.log('\nError in getById query\n')
-      throw error
-    })
-}
-
 module.exports = {
   create,
   remove,
-  getById,
 }

@@ -14,11 +14,8 @@ router.route('/:title/reviews/new')
       .catch(error => res.status(500).render('error', {error}))
   })
 
-router.delete('/delete/:id', (req, res) => {
-  reviews.getById(req.params.review_id)
-    .then(() => {
-      return reviews.remove(req.params.review_id)
-    })
+router.delete('/reviews/:id/delete', (req, res) => {
+  reviews.remove(req.params.id)
     .then(() => res.json({message: 'successful delete'}))
     .catch(error => res.status(500).render('error', {error}))
 })

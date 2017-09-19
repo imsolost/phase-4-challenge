@@ -42,6 +42,7 @@ button {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  width: 100%
 }
 
 .row-space-between {

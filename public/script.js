@@ -2,7 +2,7 @@ console.log('hello from the browser JavaScript')
 
 const deletePopup = (event) => {
   if (confirm('Are you sure you want to delete this post?')) {
-    fetch(`/delete/${event.target.id}`, {
+    fetch(`/albums/reviews/${event.target.id}/delete`, {
       method: 'delete',
       credentials: 'include',
     })

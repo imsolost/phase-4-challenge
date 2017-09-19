@@ -24,7 +24,7 @@
             <p> by <a href="/users/<%= review.username%>" > <%= review.username %> </a> </p>
           </div>
           <% if (review.username === username) { %>
-            <img id="<%= review.review_id%>" src="/trashcan.png" alt="trashcan" class="trashcan">
+            <img id="<%= review.id%>" src="/trashcan.png" alt="trashcan" class="trashcan">
           <% } %>
         </div>
       <% })
