@@ -1,0 +1,18 @@
+<title>Vinyl: New Review</title>
+
+<%- include partials/header.ejs %>
+
+<div class="column center">
+  <h2>New review for <%= album.title %> </h2>
+
+  <form class="new-review-form" action="/albums/<%= album.title %>/reviews/new" method="post">
+    <textarea class="form-input" rows="10" name="content" required></textarea>
+    <input name="album_id" value="<%= album.id %>" style="display:none">
+    <br/>
+    <br/>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+
+<%- include partials/footer.ejs %>

@@ -2,11 +2,19 @@
 
 <%- include partials/header.ejs %>
 
-  <h1><%= reviews[0].title %></h1>
-  <em>by <%= reviews[0].artist %></em>
+
 
   <div class='post-column'>
-    <h2>Reviews</h2>
+    <h1><%= reviews[0].title %></h1>
+    <em>by <%= reviews[0].artist %></em>
+
+    <div class="row-space-between">
+      <h2>Reviews</h2>
+      <% if (loggedIn) { %>
+      <a href="/albums/<%= reviews[0].title %>/reviews/new" class="new-review-button"> Add Review </a>
+      <% } %>
+    </div>
+
     <% if (reviews[0].title) {
       reviews.forEach( review => { %>
         <div class="box blue-box">

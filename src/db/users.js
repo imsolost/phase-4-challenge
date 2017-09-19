@@ -38,5 +38,5 @@ const getReviews = (username) => {
 module.exports = {
   create,
   getByUsername,
-  getReviews
+  getReviews,
 }
