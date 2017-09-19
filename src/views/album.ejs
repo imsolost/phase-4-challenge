@@ -1,12 +1,31 @@
-<title>Vinyl : <%= album.title %></title>
+<title>Vinyl : <%= reviews[0].title %></title>
 
 <%- include partials/header.ejs %>
 
-  <h1><%= album.title %></h1>
-  <em>by <%= album.artist %></em>
+  <h1><%= reviews[0].title %></h1>
+  <em>by <%= reviews[0].artist %></em>
 
-  <h2>Reviews</h2>
-
-  <!-- TODO: implement album reviews -->
+  <div class='post-column'>
+    <h2>Reviews</h2>
+    <% if (reviews[0].title) {
+      reviews.forEach( review => { %>
+        <div class="box blue-box">
+          <div class="red-box">
+            <div class="row-space-between">
+              <h3> <a href="/albums/<%= review.title%>" > <%= review.title %> </a> </h3>
+              <p> <%= moment(review.review_date).format('MMM-DD-YY') %> </p>
+            </div>
+            <p> <%= review.content %> </p>
+            <p> by <a href="/users/<%= review.username%>" > <%= review.username %> </a> </p>
+          </div>
+          <% if (reviews[0].username === username) { %>
+            <img id="<%= review.review_id%>" src="/trashcan.png" alt="trashcan" class="trashcan">
+          <% } %>
+        </div>
+      <% })
+    } else { %>
+      <p class='box blue-box'> This album has no reviews </p>
+    <% } %>
+  </div>
 
 <%- include partials/footer.ejs %>

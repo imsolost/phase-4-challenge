@@ -5,7 +5,7 @@ const router = require('express').Router()
 
 // router.get('/:username', (req, res) => {
 //   const username = req.params.username
-//   users.getReviewsByUsername(username)
+//   users.getReviews(username)
 //     .then((reviews) => {
 //       req.reviews = reviews
 //     })
@@ -18,8 +18,10 @@ const router = require('express').Router()
 
 router.get('/:username', (req, res) => {
   const username = req.params.username
-  users.getByUsername(username)
-    .then(user => res.render('profile', {user, moment}))
+  users.getReviews(username)
+    .then((reviews) => {
+        res.render('profile', {reviews, moment})
+    })
     .catch(error => res.status(500).render('error', {error}))
 })
 
