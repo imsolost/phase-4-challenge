@@ -26,6 +26,9 @@ src/
 
 Use the following commands to set up and seed your database:
 
+1. Install dependencies `install` : `$ npm install`
 1. Create PostgreSQL database `vinyl`: `$ npm run db:create`
 1. Set up database tables from `schema.sql`: `$ npm run db:schema`
 1. Load seed data from `albums.sql`: `$ npm run db:seed`
+1. Create session storage `session`: `$ npm run load_session_store`
+1. Start server `server` : `$ npm run dev`
