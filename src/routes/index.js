@@ -1,5 +1,6 @@
 const utilities = require('../utilities/bcrypt')
 const users = require('../db/users.js')
+const reviews = require('../db/reviews.js')
 const albums = require('../db/albums.js')
 const moment = require('moment')
 const router = require('express').Router()
@@ -25,8 +26,8 @@ const getAlbums = (req, res, next) => {
     })
 }
 
-const getThreeReviews = (req, res, next) => {
-  albums.getRecentReviews()
+const getRecentReviews = (req, res, next) => {
+  reviews.getRecent()
     .then((reviews) => {
       req.reviews = reviews
       next()
@@ -37,7 +38,7 @@ const renderIndex = (req, res) => {
   res.render('index', {albums: req.albums, reviews: req.reviews, moment})
 }
 
-router.get('/', getAlbums, getThreeReviews, renderIndex)
+router.get('/', getAlbums, getRecentReviews, renderIndex)
 
 router.route('/signup')
   .get((req, res) => res.render('signup'))

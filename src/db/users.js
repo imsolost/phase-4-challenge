@@ -20,23 +20,7 @@ const getByUsername = (username) => {
     })
 }
 
-const getReviews = (username) => {
-  return db.query(`
-    SELECT reviews.id, content, review_date, title, artist, username, email, join_date, picture
-    FROM reviews
-    LEFT OUTER JOIN albums ON albums.id = reviews.album_id
-    RIGHT OUTER JOIN users ON users.id = reviews.user_id
-    WHERE users.username = $1
-    ORDER BY id DESC`,
-    [username])
-    .catch((error) => {
-      console.log('\nError in getReviews query\n')
-      throw error
-    })
-}
-
 module.exports = {
   create,
   getByUsername,
-  getReviews,
 }
