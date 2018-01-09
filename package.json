@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A community for record enthusiasts to review their favorite albums.",
   "engines": {
-    "node": "6.x"
+    "node": "8.9.1"
   },
   "main": "src/server.js",
   "scripts": {
