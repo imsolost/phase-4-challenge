@@ -3,20 +3,19 @@
   "version": "1.0.0",
   "description": "A community for record enthusiasts to review their favorite albums.",
   "engines": {
-    "node": "8.9.1"
+    "node": "8.x"
   },
-  "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "db:reset": "npm run db:drop && npm run db:create && npm run db:schema && npm run db:seed && npm run load_session_store",
+    "setup": "src/config/setup.sh",
+    "db:reset": "src/config/reset-db.sh",
     "db:create": "createdb vinyl",
     "db:drop": "dropdb vinyl",
     "db:schema": "psql -d vinyl < src/db/schema.sql",
-    "db:seed": "psql -d vinyl < src/db/seed.sql",
-    "db:initialize": "npm run db:create && npm run db:schema && npm run db:seed && npm run load_session_store",
-    "load_session_store": "psql vinyl < node_modules/connect-pg-simple/table.sql",
-    "test": "./node_modules/.bin/eslint src"
+    "db:seed": "psql -d vinyl < src/db/seed-data.sql",
+    "test": "./node_modules/.bin/eslint src",
+    "load-session-store": "psql vinyl < node_modules/connect-pg-simple/table.sql"
   },
   "license": "MIT",
   "dependencies": {
@@ -27,7 +26,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.5",
     "moment": "^2.18.1",
-    "pg-promise": "^6.5.1"
+    "pg-promise": "^6.7.1"
   },
   "devDependencies": {
     "eslint": "^4.4.1",
