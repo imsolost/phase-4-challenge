@@ -79,15 +79,24 @@ router.get('/logout', (req, res) => {
 router.use('/users', require('./users'))
 router.use('/albums', require('./albums'))
 
-const ensureLoggedIn = (req, res, next) => {
+// const ensureLoggedIn = (req, res, next) => {
+//   if (req.session && req.session.user) {
+//     next()
+//   } else {
+//     res.redirect('/signin')
+//   }
+// }
+
+// router.use(ensureLoggedIn)
+
+router.use((req, res, next) => {
   if (req.session && req.session.user) {
     next()
   } else {
     res.redirect('/signin')
   }
-}
+})
 
-router.use(ensureLoggedIn)
 router.use('/albums', require('./reviews'))
 
 module.exports = router
