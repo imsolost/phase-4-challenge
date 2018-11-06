@@ -6,8 +6,8 @@
     "node": "8.x"
   },
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
     "setup": "src/config/setup.sh",
     "db:reset": "src/config/reset-db.sh",
     "db:create": "createdb vinyl",
